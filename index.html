@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Sakli 🌙</title>
+
+<link href="https://fonts.googleapis.com/css2?familyPlayfair+Display:wght@500;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{height:100vh;overflow:hidden;font-family:'Poppins',sans-serif;color:white}
+
+/* Galaxy */
+.galaxy{
+  position:fixed; inset:0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,.08), transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(255,255,255,.06), transparent 45%),
+    linear-gradient(120deg,#020111,#0a2342,#040017);
+  animation: drift 30s infinite alternate linear;
+}
+@keyframes drift{from{transform:scale(1)}to{transform:scale(1.15)}}
+
+/* Stars */
+.star{
+  position:absolute;width:2px;height:2px;background:white;border-radius:50%;
+  animation:twinkle 3s infinite alternate, driftStar 40s linear infinite;
+}
+@keyframes twinkle{from{opacity:.2}to{opacity:1}}
+@keyframes driftStar{from{transform:translateX(-10vw)}to{transform:translateX(120vw)}}
+
+/* Moon */
+.moon{
+  position:absolute;top:10%;right:10%;
+  width:140px;height:140px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,#fff,#ddd,#aaa);
+  box-shadow:0 0 60px rgba(255,255,255,.6);
+}
+
+/* Pages */
+.page{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column;
+  justify-content:center; align-items:center;
+  text-align:center; transition:1.5s;
+}
+.hidden{opacity:0;pointer-events:none}
+
+h1{font-family:'Playfair Display',serif;font-size:48px}
+p{font-size:18px;max-width:700px}
+input{width:280px;padding:14px 22px;border-radius:30px;border:none;font-size:18px;text-align:center}
+button{
+  margin-top:20px;padding:12px 34px;border-radius:30px;border:none;
+  background:linear-gradient(45deg,#f9d423,#ff4e50);cursor:pointer;transition:.3s
+}
+button:hover{transform:scale(1.08)}
+
+#magic{
+  margin-top:25px;font-size:32px;font-family:'Playfair Display';
+  opacity:0;transition:2s;text-shadow:0 0 25px white
+}
+
+/* Boxes */
+.letter,.final-letter{
+  max-width:700px;background:rgba(255,255,255,.08);
+  padding:40px;border-radius:20px;line-height:1.8;
+  box-shadow:0 0 30px rgba(255,255,255,.2);
+}
+
+/* Celebration */
+.cake{font-size:160px;animation:bounce 1.5s infinite alternate}
+@keyframes bounce{from{transform:translateY(0)}to{transform:translateY(-25px)}}
+
+#confetti span{position:absolute;width:8px;height:8px;animation:fall linear infinite}
+@keyframes fall{from{top:-10px}to{top:110vh}}
+
+#balloons span{position:absolute;bottom:-120px;font-size:45px;animation:floatUp linear infinite}
+@keyframes floatUp{from{transform:translateY(0)}to{transform:translateY(-120vh)}}
+
+/* Gallery */
+#gallery{position:absolute;inset:0;pointer-events:none}
+#gallery img{
+  position:absolute;width:140px;border-radius:14px;
+  box-shadow:0 0 25px rgba(255,255,255,.5);
+  animation: floatMemory linear infinite;
+}
+@keyframes floatMemory{
+  0%{transform:translate(0,0)}
+  25%{transform:translate(60vw,-20vh)}
+  50%{transform:translate(-40vw,40vh)}
+  75%{transform:translate(30vw,60vh)}
+  100%{transform:translate(0,0)}
+}
+
+/* Dance Page */
+.dance-track{width:100%;overflow:hidden;margin-top:40px}
+.dance-row{
+  display:flex;gap:20px;width:max-content;
+  animation:scrollDance 40s linear infinite;
+}
+.dance-row video{
+  width:220px;border-radius:15px;
+  box-shadow:0 0 25px rgba(255,255,255,.5);
+}
+@keyframes scrollDance{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* Final Page */
+.final-photo{
+  margin-top:30px;
+  width:260px;
+  border-radius:20px;
+  box-shadow:0 0 30px rgba(255,255,255,.5);
+  animation:finalReveal 3s ease forwards;
+}
+@keyframes finalReveal{
+  from{opacity:0;transform:scale(.7)}
+  to{opacity:1;transform:scale(1)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="galaxy"></div>
+<div class="moon"></div>
+
+<!-- PAGE 1 -->
+<div class="page" id="page1">
+  <h1>Type your name…</h1>
+  <input id="nameInput" placeholder="Your name">
+  <button onclick="enterName()">Enter</button>
+  <div id="magic"></div>
+  <button id="continueBtn" style="display:none" onclick="goPage2()">Continue</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page hidden" id="page2">
+  <div class="letter">
+    <h2>Heyy 🐧</h2>
+    <p>Many many happy returns of the day 🌙
+        ...Aur baaki saab toh maine raat ko bol diya hai tumhe toh kuch aur bolta hu
+        I hope you're doing well
+        Baaki Mental piece??
+        Thora time do khudpe,
+        I know that you'll achieve everything bus aache se tumhe dhayan dena hai aur haa main baat faltu logo se durr raha karo bus   
+        Baaki tum mast ho ,thora bhaw khana chorr do haha sorry, aacha se raho tum ,mummy ka dhayan rakhna aur ek din ashaa hai ki durr se tumhe dekhunga tum ek bada company mei kaam kr rhi ho aur dhire dhire tum apna haar ek sapna pura kr rhi ho
+        Zyada waha kuch nhi bolna bus kuch chota se chiz banaya hu 
+        I hope you like it 👀
+        Press the button👀
+
+
+
+    </p>
+    <button onclick="goPage3()">Let’s Celebrate 🎉</button>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page hidden" id="page3">
+  <div class="cake">🎂</div>
+  <div id="balloons"></div>
+  <h1>Happy Birthday Sakli 🎉</h1>
+  <div>
+    <button onclick="startCelebration()">Start Celebration 🎉</button>
+    <button onclick="toggleMusic()" id="musicBtn">Play Music 🎵</button>
+  </div>
+  <audio id="music" loop>
+    <source src="Happy-birthday-to-you-ji-Birthday-song-Hindi.mp3">
+  </audio>
+  <button onclick="goPage4()">Next ➜</button>
+  <div id="confetti"></div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page hidden" id="page4">
+  <h1>Ye moments… ✨</h1>
+  <p>Bus apne paas sambhalke rakha tha, Socha tha kabhi toh use hoga.......Maybe aaj wo din hai👀 <br>Button ko press karo👀  </p>
+  <div id="gallery"></div>
+  <button onclick="goPage5()">Next ➜</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page hidden" id="page5">
+  <div class="final-letter">
+    <h1>Kese laga??? 🌙</h1>
+    <p>Thora aacha??? </p>
+    <p>Ek smile toh banta hai na??<br>Chalo thank you <br>Main chahta hu tum hamesha khush raho jo bhi ho jaye</p>
+    <p>Sorry itna padhna padh rha hai tumhe😑
+        <br>Sorry pakane ke liye
+        <br> Aage badho <br>button👀
+    </p>
+    <button onclick="goPage6()">Next ➜</button>
+  </div>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page hidden" id="page6">
+  <h1>Ye kuch videos jo main hamesha dekhta rehta tha</h1>
+  <p>tumahara dance toh khatarnaak hai....Besttttttttt
+    maaza aa jata hai dekhne meiiiii 
+  </p>
+  <div class="dance-track">
+    <div class="dance-row">
+      <video src="dance1.mp4" muted loop autoplay></video>
+      <video src="dance2.mp4" muted loop autoplay></video>
+      <video src="dance3.mp4" muted loop autoplay></video>
+      <video src="dance4.mp4" muted loop autoplay></video>
+      <video src="dance5.mp4" muted loop autoplay></video>
+      <video src="dance6.mp4" muted loop autoplay></video>
+      <video src="dance7.mp4" muted loop autoplay></video>
+      <video src="dance8.mp4" muted loop autoplay></video>
+      <video src="dance9.mp4" muted loop autoplay></video>
+      <video src="dance10.mp4" muted loop autoplay></video>
+      <video src="dance11.mp4" muted loop autoplay></video>
+      <video src="dance12.mp4" muted loop autoplay></video>
+      <video src="dance13.mp4" muted loop autoplay></video>
+      <video src="dance14.mp4" muted loop autoplay></video>
+
+      <video src="dance1.mp4" muted loop autoplay></video>
+      <video src="dance2.mp4" muted loop autoplay></video>
+      <video src="dance3.mp4" muted loop autoplay></video>
+      <video src="dance4.mp4" muted loop autoplay></video>
+      <video src="dance5.mp4" muted loop autoplay></video>
+      <video src="dance6.mp4" muted loop autoplay></video>
+      <video src="dance7.mp4" muted loop autoplay></video>
+      <video src="dance8.mp4" muted loop autoplay></video>
+      <video src="dance9.mp4" muted loop autoplay></video>
+      <video src="dance10.mp4" muted loop autoplay></video>
+      <video src="dance11.mp4" muted loop autoplay></video>
+      <video src="dance12.mp4" muted loop autoplay></video>
+      <video src="dance13.mp4" muted loop autoplay></video>
+      <video src="dance14.mp4" muted loop autoplay></video>
+    </div>
+  </div>
+  <button onclick="goPage7()">Finish 💖</button>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page hidden" id="page7">
+  <h1>Yehi time ka wait kr rha tha bus👀</h1>
+  <img src="./P533.jpeg" class="final-photo">
+  <button onclick="goPage8()">Next ➜</button>
+</div>
+
+<!-- PAGE 8 -->
+<div class="page hidden" id="page8">
+  <div class="final-letter">
+    <h1>Bus yehi.......</h1>
+    <p>I hope wo smile dila paya hu main .</p>
+    <p>Khush rehna hamesha please jaha bhi raho.</p>
+    <p>Happy Birthday once again, Sakli and this is the last time main pe bol rha hu....Abse aur kabhi nhi .....Main durr chala gaya
+        Im sorry maaf kr dena sab chiz ke liye...Bohot kuch bolna tha mujhe but I guess na bolna sahi hai....sooo 
+        <br>TATA khush raho thikkkkkkkkk??????????????
+        <br>Ek last gana sunana tha tumhe bus nhiii bus kuch linee <br><br>
+        <i><b>Jaa karna hai tu pyaar kar..</b></i><br><br>
+        <i><b>Zid poori phir ek baar kar</b></i><br><br>
+        <i><b>Kamleya Ve Kamleya🥀</b></i>
+    </p><br><br>
+    <p>
+        BYE Anushka........🐧🐇
+    </p>
+    <p style="margin-top:20px;font-style:italic;">— Mera Chapter khatam 🌙</p>
+  </div>
+</div>
+
+<script>
+for(let i=0;i<160;i++){
+  let s=document.createElement("div");
+  s.className="star";
+  s.style.left=Math.random()*100+"vw";
+  s.style.top=Math.random()*100+"vh";
+  s.style.animationDuration=(2+Math.random()*3)+"s,"+(30+Math.random()*40)+"s";
+  document.body.appendChild(s);
+}
+
+function enterName(){
+  let name=document.getElementById("nameInput").value.trim();
+  if(!name)return;
+  magic.innerHTML=`Welcome, ${name} 🌙`;
+  magic.style.opacity=1;
+  continueBtn.style.display="block";
+}
+
+function goPage2(){page1.classList.add("hidden");page2.classList.remove("hidden")}
+function goPage3(){page2.classList.add("hidden");page3.classList.remove("hidden")}
+function goPage4(){page3.classList.add("hidden");page4.classList.remove("hidden");startGallery()}
+function goPage5(){page4.classList.add("hidden");page5.classList.remove("hidden")}
+function goPage6(){page5.classList.add("hidden");page6.classList.remove("hidden")}
+function goPage7(){page6.classList.add("hidden");page7.classList.remove("hidden")}
+
+function startCelebration(){launchConfetti();releaseBalloons()}
+
+function toggleMusic(){
+  const m=document.getElementById("music");
+  const b=document.getElementById("musicBtn");
+  if(m.paused){m.play();b.innerText="Pause Music ⏸️";}
+  else{m.pause();b.innerText="Play Music 🎵";}
+}
+
+function launchConfetti(){
+  for(let i=0;i<150;i++){
+    let c=document.createElement("span");
+    c.style.left=Math.random()*100+"vw";
+    c.style.background=`hsl(${Math.random()*360},100%,70%)`;
+    c.style.animationDuration=(2+Math.random()*3)+"s";
+    document.getElementById("confetti").appendChild(c);
+  }
+}
+
+function releaseBalloons(){
+  for(let i=0;i<20;i++){
+    let b=document.createElement("span");
+    b.innerHTML="🎈";
+    b.style.left=Math.random()*100+"vw";
+    b.style.animationDuration=(6+Math.random()*6)+"s";
+    document.getElementById("balloons").appendChild(b);
+  }
+}
+
+function startGallery(){
+  const g=document.getElementById("gallery");
+  g.innerHTML="";
+  for(let i=1;i<=52;i++){
+    let img=document.createElement("img");
+    img.src=`photos/p${i}.jpeg`;
+    img.style.left=Math.random()*100+"vw";
+    img.style.top=Math.random()*100+"vh";
+    img.style.animationDuration=(18+Math.random()*15)+"s";
+    g.appendChild(img);
+  }
+}
+
+function goPage8(){
+  page7.classList.add("hidden");
+  page8.classList.remove("hidden");
+}
+
+</script>
+
+</body>
+</html>
